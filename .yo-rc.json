@@ -1,0 +1,29 @@
+{
+  "generator-angularjs-gulp-library": {
+    "props": {
+      "author": {
+        "name": "Adedayo Omitayo",
+        "email": "adedayo.omitayo@flowswift.com"
+      },
+      "libraryName": {
+        "original": "angularjs-lob",
+        "camelized": "angularjsLob",
+        "dasherized": "angularjs-lob",
+        "slugified": "angularjs-lob",
+        "parts": [
+          "angularjs",
+          "lob"
+        ]
+      },
+      "includeModuleDirectives": true,
+      "includeModuleFilters": true,
+      "includeModuleServices": true,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "librarySrcDirectory": "src/angularjsLob",
+      "libraryUnitTestDirectory": "test/unit/angularjsLob",
+      "libraryUnitE2eDirectory": "test/e2e/angularjsLob"
+    }
+  }
+}
