@@ -1,14 +1,22 @@
 'use strict';
 
 angular.module('angularjsLob.services')
-.provider('resourceContext', function(){
+.provider('resourceContext', ['RestangularProvider', function(RestangularProvider){
 
 	var _resourceModels = {};
 
 	this.resourceModel = function(name, route, config){
 		_resourceModels[name] = {
-			config: angular.extend({name:name, route:route}, config||{})
+			config: angular.extend({typeName:name, route:route}, config||{})
 		};
+	};
+
+	this.baseUrl = function(baseUrl){
+		RestangularProvider.setBaseUrl(baseUrl);
+	};
+
+	this.dataAdapter = function(fn){
+		RestangularProvider.addResponseInterceptor(fn);
 	};
 
 	this.$get = ['resourceModelFactory', 'ResourceQuery', function(resourceModelFactory, ResourceQuery){
@@ -28,4 +36,4 @@ angular.module('angularjsLob.services')
 			}
 		};
 	}];
-});
+}]);

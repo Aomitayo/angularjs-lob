@@ -5,7 +5,7 @@ angular.module('angularjsLob.services')
 
 	function ResourceCursor(model, params, items){
 		var self = this;
-		resourceCollection(this);
+		resourceCollection(self);
 
 		self.isLoading = false;
 		self.isEof = false;

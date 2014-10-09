@@ -5,6 +5,7 @@
 .idea
 .project
 .settings
+tmp
 
 # Ignore node stuff
 node_modules/

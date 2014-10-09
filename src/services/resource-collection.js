@@ -4,13 +4,11 @@
 
 angular.module('angularjsLob.services')
 .constant('resourceCollection', function(collection){
-	var self = this;
+	var self = collection || this;
 
-	var theItems = this;
-
-	if(!angular.isArray(theItems)){
-		throw new Array('Resource collection should be mixed unto an array');
-	}
+	// if(!angular.isArray(self)){
+	// 	throw new Array('Resource collection should be mixed unto an array');
+	// }
 
 	self._revision = 0;
 
@@ -23,30 +21,30 @@ angular.module('angularjsLob.services')
 	};
 
 	self.append = function(item, doNotRevise){
-		theItems.push(item);
+		self.push(item);
 		if(!doNotRevise){this._updateRevision();}
 	};
 
 	self.appendItems = function(items, doNotRevise){
 		angular.forEach(items, function(item){
-			theItems.push(item);
+			self.push(item);
 		});
 		if(!doNotRevise){this._updateRevision();}
 	};
 
 	self.prepend = function(item){
-		theItems.unshift(item);
+		self.unshift(item);
 		this._updateRevision();
 	};
 
 	self.prependItems = function(items){
 		angular.forEach(items, function(item){
-			theItems.unshift(item);
+			self.unshift(item);
 		});
 		this._updateRevision();
 	};
 	self.insert = function(index, item){
-		theItems.splice(index, 0, item);
+		self.splice(index, 0, item);
 		this._updateRevision();
 	};
 
@@ -61,20 +59,20 @@ angular.module('angularjsLob.services')
 	self.removeItem = function(item, compareIds){
 		var index = this.itemIndex(item, compareIds);
 		if(index !== -1){
-			theItems.splice(index, 1);
+			self.splice(index, 1);
 			this._updateRevision();
 		}
 	};
 
 	self.removeAll = function(){
-		theItems.splice(0, theItems.length);
+		self.splice(0, self.length);
 		this._updateRevision();
 	};
 
 	self.replaceItem = function(item, replacement){
 		var index = this.itemIndex(item);
 		if(index !== -1){
-			theItems.splice(index, 1, replacement);
+			self.splice(index, 1, replacement);
 			this._updateRevision();
 		}
 	};
@@ -91,10 +89,10 @@ angular.module('angularjsLob.services')
 			compare = undefined;
 		}
 
-		var index = theItems.indexOf(item);
+		var index = self.indexOf(item);
 		if(index === -1 && compare){
-			for(var i=0; i< theItems; i++){
-				if(compare(item, theItems[i])){
+			for(var i=0; i< self; i++){
+				if(compare(item, self[i])){
 					return i;
 				}
 			}

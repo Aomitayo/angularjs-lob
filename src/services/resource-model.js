@@ -9,7 +9,8 @@ angular.module('angularjsLob.services')
 		var ResourceModel = Restangular.allUrl(config.route);
 		ResourceModel.create = function(data){
 			data = data || {};
-			data = Restangular.restangularizeElement(ResourceModel, data, config.route);
+			//data = Restangular.restangularizeElement(ResourceModel, data, config.route);
+			data = Restangular.restangularizeElement(ResourceModel, data, '');
 			data.typeName = function(){
 				return config.typeName;
 			};
