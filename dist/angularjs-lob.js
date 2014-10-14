@@ -39,7 +39,7 @@ angular.module('angularjsLob.directives')
 					var view = attrs.view;
 					resourceViews.controllerFor(view, resource).then(function(ctrl){
 						if(ctrl){
-							$controller(ctrl, {$scope:scope});
+							$controller(ctrl, {$scope:scope, resource:resource});
 						}
 					});
 					resourceViews.templateFor(view, resource).then(function(tpl){
