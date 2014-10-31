@@ -203,6 +203,8 @@ angular.module('angularjsLob.services')
 		RestangularProvider.addResponseInterceptor(fn);
 	};
 
+	this.restangular = RestangularProvider;
+	
 	this.$get = ['resourceModelFactory', 'ResourceQuery', function(resourceModelFactory, ResourceQuery){
 		return {
 			resourceModel: function(name){
