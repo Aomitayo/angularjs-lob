@@ -1,3 +1,3 @@
 # angularjs-lob
 
-Utilities writing for Line of business apps in angularjs
+Utilities for writing Line of business apps in angularjs
