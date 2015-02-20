@@ -239,6 +239,9 @@ angular.module('angularjsLob.services')
 
 		if(items){
 			this.appendItems(items);
+			if(items.pagination){
+				this.count = items.pagination.count;
+			}
 		}
 
 		this.more = function(){
